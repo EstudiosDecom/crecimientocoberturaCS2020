@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/leaflet-measure.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/leaflet-measure.js"></script>
+        <script src="data/Crecimientoenlacoberturadeprogramasyserviciosdurantelacrisissanitaria_1.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:18, minZoom:12
+        }).fitBounds([[-33.48046418327668,-70.68577437939798],[-33.321747214542825,-70.4232201763431]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        var measureControl = new L.Control.Measure({
+            position: 'topleft',
+            primaryLengthUnit: 'meters',
+            secondaryLengthUnit: 'kilometers',
+            primaryAreaUnit: 'sqmeters',
+            secondaryAreaUnit: 'hectares'
+        });
+        measureControl.addTo(map);
+        document.getElementsByClassName('leaflet-control-measure-toggle')[0]
+        .innerHTML = '';
+        document.getElementsByClassName('leaflet-control-measure-toggle')[0]
+        .className += ' fas fa-ruler';
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        map.createPane('pane_OpenStreetMap_0');
+        map.getPane('pane_OpenStreetMap_0').style.zIndex = 400;
+        var layer_OpenStreetMap_0 = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            pane: 'pane_OpenStreetMap_0',
+            opacity: 1.0,
+            attribution: '',
+            minZoom: 12,
+            maxZoom: 18,
+            minNativeZoom: 0,
+            maxNativeZoom: 19
+        });
+        layer_OpenStreetMap_0;
+        map.addLayer(layer_OpenStreetMap_0);
+        function pop_Crecimientoenlacoberturadeprogramasyserviciosdurantelacrisissanitaria_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>Macrozona</strong><br />' + (feature.properties['Macrozona'] !== null ? autolinker.link(feature.properties['Macrozona'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Cantidad de hogares</strong><br />' + (feature.properties['Cantidad de hogares'] !== null ? autolinker.link(feature.properties['Cantidad de hogares'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Hogares que han recibido ayuda</strong><br />' + (feature.properties['Hogares que han recibido ayuda'] !== null ? autolinker.link(feature.properties['Hogares que han recibido ayuda'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Crecimiento en la cobertura de los programas y servicios municipales durante la crisis sanitaria</strong><br />' + (feature.properties['Aumento de cobertura'] !== null ? autolinker.link(feature.properties['Aumento de cobertura'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Crecimientoenlacoberturadeprogramasyserviciosdurantelacrisissanitaria_1_0(feature) {
+            if (feature.properties['Aumento de cobertura'] >= 121.600000 && feature.properties['Aumento de cobertura'] <= 121.600000 ) {
+                return {
+                pane: 'pane_Crecimientoenlacoberturadeprogramasyserviciosdurantelacrisissanitaria_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.53)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(68,1,84,0.53)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Aumento de cobertura'] >= 121.600000 && feature.properties['Aumento de cobertura'] <= 158.300000 ) {
+                return {
+                pane: 'pane_Crecimientoenlacoberturadeprogramasyserviciosdurantelacrisissanitaria_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.53)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(58,82,139,0.53)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Aumento de cobertura'] >= 158.300000 && feature.properties['Aumento de cobertura'] <= 187.900000 ) {
+                return {
+                pane: 'pane_Crecimientoenlacoberturadeprogramasyserviciosdurantelacrisissanitaria_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.53)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(32,144,141,0.53)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Aumento de cobertura'] >= 187.900000 && feature.properties['Aumento de cobertura'] <= 233.300000 ) {
+                return {
+                pane: 'pane_Crecimientoenlacoberturadeprogramasyserviciosdurantelacrisissanitaria_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.53)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(93,201,98,0.53)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['Aumento de cobertura'] >= 233.300000 && feature.properties['Aumento de cobertura'] <= 375.000000 ) {
+                return {
+                pane: 'pane_Crecimientoenlacoberturadeprogramasyserviciosdurantelacrisissanitaria_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.53)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,231,37,0.53)',
+                interactive: true,
+            }
+            }
+        }
+        map.createPane('pane_Crecimientoenlacoberturadeprogramasyserviciosdurantelacrisissanitaria_1');
+        map.getPane('pane_Crecimientoenlacoberturadeprogramasyserviciosdurantelacrisissanitaria_1').style.zIndex = 401;
+        map.getPane('pane_Crecimientoenlacoberturadeprogramasyserviciosdurantelacrisissanitaria_1').style['mix-blend-mode'] = 'normal';
+        var layer_Crecimientoenlacoberturadeprogramasyserviciosdurantelacrisissanitaria_1 = new L.geoJson(json_Crecimientoenlacoberturadeprogramasyserviciosdurantelacrisissanitaria_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Crecimientoenlacoberturadeprogramasyserviciosdurantelacrisissanitaria_1',
+            layerName: 'layer_Crecimientoenlacoberturadeprogramasyserviciosdurantelacrisissanitaria_1',
+            pane: 'pane_Crecimientoenlacoberturadeprogramasyserviciosdurantelacrisissanitaria_1',
+            onEachFeature: pop_Crecimientoenlacoberturadeprogramasyserviciosdurantelacrisissanitaria_1,
+            style: style_Crecimientoenlacoberturadeprogramasyserviciosdurantelacrisissanitaria_1_0,
+        });
+        bounds_group.addLayer(layer_Crecimientoenlacoberturadeprogramasyserviciosdurantelacrisissanitaria_1);
+        map.addLayer(layer_Crecimientoenlacoberturadeprogramasyserviciosdurantelacrisissanitaria_1);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'Crecimiento en la cobertura de programas y servicios durante la crisis sanitaria (%)<br /><table><tr><td style="text-align: center;"><img src="legend/Crecimientoenlacoberturadeprogramasyserviciosdurantelacrisissanitaria_1_12160.png" /></td><td>121,6%</td></tr><tr><td style="text-align: center;"><img src="legend/Crecimientoenlacoberturadeprogramasyserviciosdurantelacrisissanitaria_1_121715831.png" /></td><td>121,7% - 158,3%</td></tr><tr><td style="text-align: center;"><img src="legend/Crecimientoenlacoberturadeprogramasyserviciosdurantelacrisissanitaria_1_158418792.png" /></td><td>158,4% - 187,9%</td></tr><tr><td style="text-align: center;"><img src="legend/Crecimientoenlacoberturadeprogramasyserviciosdurantelacrisissanitaria_1_18823333.png" /></td><td>188% - 233,3%</td></tr><tr><td style="text-align: center;"><img src="legend/Crecimientoenlacoberturadeprogramasyserviciosdurantelacrisissanitaria_1_3754.png" /></td><td>375%</td></tr></table>': layer_Crecimientoenlacoberturadeprogramasyserviciosdurantelacrisissanitaria_1,"OpenStreetMap": layer_OpenStreetMap_0,}).addTo(map);
+        setBounds();
+        var i = 0;
+        layer_Crecimientoenlacoberturadeprogramasyserviciosdurantelacrisissanitaria_1.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['Macrozona'] !== null?String('<div style="color: #000000; font-size: 10pt; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['Macrozona']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Crecimientoenlacoberturadeprogramasyserviciosdurantelacrisissanitaria_1'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        resetLabels([layer_Crecimientoenlacoberturadeprogramasyserviciosdurantelacrisissanitaria_1]);
+        map.on("zoomend", function(){
+            resetLabels([layer_Crecimientoenlacoberturadeprogramasyserviciosdurantelacrisissanitaria_1]);
+        });
+        map.on("layeradd", function(){
+            resetLabels([layer_Crecimientoenlacoberturadeprogramasyserviciosdurantelacrisissanitaria_1]);
+        });
+        map.on("layerremove", function(){
+            resetLabels([layer_Crecimientoenlacoberturadeprogramasyserviciosdurantelacrisissanitaria_1]);
+        });
+        </script>
+    </body>
+</html>
